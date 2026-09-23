@@ -4,6 +4,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building retailapp_platform'
+
+                sh '''
+                    pwd
+                    git --version
+                '''
             }
         }
     }

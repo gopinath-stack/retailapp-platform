@@ -5,8 +5,8 @@ pipeline {
             steps {
                 echo 'Building retailapp_platform'
 
-                sh '''
-                    pwd
+                bat '''
+                    cd
                     git --version
                 '''
             }

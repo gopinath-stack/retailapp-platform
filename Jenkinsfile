@@ -34,10 +34,11 @@ pipeline {
                 echo "Environment: ${params.ENVIRONMENT}"
                 echo "Version: ${params.VERSION}"
                 echo "Production confirmation: ${params.CONFIRM_PROD}"
+                echo "Git commit: ${env.GIT_COMMIT}"
 
                 script {
                     if(params.ENVIRONMENT == 'PRODUCTION' && params.CONFIRM_PROD != 'YES') {
-                        error 'Production deployment require CONFIRM-PROD = yes'
+                        error 'Production deployment requires CONFIRM_PROD = yes'
                     }
                 }
 

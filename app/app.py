@@ -34,6 +34,20 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(response).encode())
 
+        elif self.path == "/products":
+            response = {
+                "products": [
+                    "Laptop",
+                    "Phone",
+                    "Headphones"
+                ],
+                "version": VERSION
+            }
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(response).encode())
+
         else:
             self.send_response(404)
             self.end_headers()

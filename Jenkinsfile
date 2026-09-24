@@ -40,6 +40,10 @@ pipeline {
                     if(params.ENVIRONMENT == 'PRODUCTION' && params.CONFIRM_PROD != 'YES') {
                         error 'Production deployment requires CONFIRM_PROD = yes'
                     }
+
+                    if(sh(script: "git rev-parse v${params.VERSION}", returnStatus: true) != 0) {
+                        error "Version tag v${params.VERSION} does not exist"
+                    }
                 }
 
             }

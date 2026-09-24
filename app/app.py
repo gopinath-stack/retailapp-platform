@@ -7,11 +7,14 @@ VERSION = "4.2.0"
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
+
         if self.path == "/":
             response = f"Retail Platform v{VERSION} is running"
+
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
+
             self.wfile.write(response.encode())
 
         elif self.path == "/health":
@@ -19,9 +22,11 @@ class Handler(BaseHTTPRequestHandler):
                 "status": "ok",
                 "version": VERSION
             }
+
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
+
             self.wfile.write(json.dumps(response).encode())
 
         elif self.path == "/payment":
@@ -29,9 +34,11 @@ class Handler(BaseHTTPRequestHandler):
                 "status": "payment service operational",
                 "version": VERSION
             }
+
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
+
             self.wfile.write(json.dumps(response).encode())
 
         elif self.path == "/products":
@@ -43,9 +50,27 @@ class Handler(BaseHTTPRequestHandler):
                 ],
                 "version": VERSION
             }
+
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
+
+            self.wfile.write(json.dumps(response).encode())
+
+        elif self.path == "/orders":
+            response = {
+                "orders": [
+                    "ORD-1001",
+                    "ORD-1002",
+                    "ORD-1003"
+                ],
+                "version": VERSION
+            }
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+
             self.wfile.write(json.dumps(response).encode())
 
         else:

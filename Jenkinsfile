@@ -37,7 +37,7 @@ pipeline {
 
                 script {
                     if(params.ENVIRONMENT == 'PRODUCTION' && params.CONFIRM_PROD != 'YES') {
-                        error 'Production deployment require CONFIRM-PROD = 'yes'
+                        error 'Production deployment require CONFIRM-PROD = yes'
                     }
                 }
 

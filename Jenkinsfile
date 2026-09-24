@@ -46,6 +46,18 @@ pipeline {
                     }
                 }
 
+                stage('Build Docker Image') {
+                    steps {
+                        bat "docker build -t retail-app:${params.VERSION} ."
+                    }
+                }
+
+                stage('Run Docker Container') {
+                    steps {
+                        bat "docker run -d --name retail-app-${params.VERSION} -p 8081:8080 retail-app:${params.VERSION}"
+                    }
+                }
+
             }
         }
     }

@@ -1,0 +1,12 @@
+*   c7d6e63 (HEAD -> develop) merge: resolve conflict
+|\  
+| * bb20685 (conflict-test) test: prepare release version
+* | 2b529c4 test: update development version
+|/  
+*   b7009a9 Merge branch 'hotfix/payment-4.2.1' into develop
+|\  
+| * 62169e8 (tag: v4.2.1, main, hotfix/payment-4.2.1) fix: resolve payment issue in 4.2.1
+* | 1dfb696 (release/4.3.0) feat: add order endpoint
+* | 36fb284 feat: add product endpoint
+|/  
+* 1fa0ee5 release: production version 4.2.0

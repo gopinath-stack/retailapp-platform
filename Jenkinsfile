@@ -34,6 +34,13 @@ pipeline {
                 echo "Environment: ${params.ENVIRONMENT}"
                 echo "Version: ${params.VERSION}"
                 echo "Production confirmation: ${params.CONFIRM_PROD}"
+
+                script {
+                    if(params.ENVIRONMENT == 'PRODUCTION' && params.CONFIRM_PROD != 'YES') {
+                        error 'Production deployment require CONFIRM-PROD = 'yes'
+                    }
+                }
+
             }
         }
     }
